@@ -6,7 +6,6 @@ package doolhof;
 
 import static doolhof.Vak.height;
 import static doolhof.Vak.width;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -19,7 +18,7 @@ import javax.swing.ImageIcon;
 
 public class Vijand extends SpelObject {
     
-   static Image vijand = new ImageIcon(Muur.class.getResource("\\Plaatjes\\Enemy.png")).getImage();
+   private static final Image vijand = new ImageIcon(Vijand.class.getResource("\\Plaatjes\\Enemy.png")).getImage();
     
    int drow ;
    int dcol;
@@ -42,12 +41,14 @@ public class Vijand extends SpelObject {
        
    }   
    
+   @Override
    public void drawItem(Graphics g, int x, int y) {
-        g.drawImage(this.vijand,x + (width), y+(height), width, height,null);
+        g.drawImage(Vijand.vijand,x + (width), y+(height), width, height,null);
     }
    
+   @Override
    public void draw(Graphics g) {
-		g.drawImage(this.vijand,col*Level.WIDTH, row*Level.HEIGHT,Level.WIDTH,Level.HEIGHT,null);
+		g.drawImage(Vijand.vijand,col*Level.WIDTH, row*Level.HEIGHT,Level.WIDTH,Level.HEIGHT,null);
 	}
    
    @Override

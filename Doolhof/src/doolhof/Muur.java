@@ -18,7 +18,7 @@ import javax.swing.ImageIcon;
 
 public class Muur extends SpelObject{
 
-    static Image crate = new ImageIcon(Muur.class.getResource("\\Plaatjes\\crate.png")).getImage();
+    private static final Image crate = new ImageIcon(Muur.class.getResource("\\Plaatjes\\crate.png")).getImage();
     
     
     public Muur(Doolhof game, int row, int col)
@@ -46,8 +46,9 @@ public class Muur extends SpelObject{
           
       }
       
+    @Override
       public void draw(Graphics g) {
-		g.drawImage(this.crate,col*Level.WIDTH, row*Level.HEIGHT,Level.WIDTH,Level.HEIGHT,null);
+		g.drawImage(Muur.crate,col*Level.WIDTH, row*Level.HEIGHT,Level.WIDTH,Level.HEIGHT,null);
 	}
       
     @Override
@@ -57,7 +58,7 @@ public class Muur extends SpelObject{
 
     @Override
     public void drawItem(Graphics g, int x, int y) {
-        g.drawImage(this.crate,x + (width/4), y+(height/4), width, height,null);
+        g.drawImage(Muur.crate,x + (width/4), y+(height/4), width, height,null);
     }
         
     }  

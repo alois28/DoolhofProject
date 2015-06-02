@@ -22,16 +22,16 @@ public class Timers extends JPanel {
     
     private int startGetal;
     private int stopGetal = 0;
-    private int ExtraTijd = 5;    //Dit is hoeveel er van de tijd afgehaald mag worden. Dit is later nodig voor de vijand.
-    private Timer timer;
-    private int ms = 1000;
-    private int ms2 = 50;
-    private Font font = new Font("Century gothic", Font.BOLD, 50);
-    private Color color = (Color.BLUE);
+    private final int ExtraTijd = 5;    //Dit is hoeveel er van de tijd afgehaald mag worden. Dit is later nodig voor de vijand.
+    private final Timer timer;
+    private final int ms = 1000;
+    private final int ms2 = 50;
+    private final Font font = new Font("Century gothic", Font.BOLD, 50);
+    private final Color color = (Color.BLUE);
     private JLabel label; 
-    private JPanel panel;
-    private int breedte = 200;
-    private int hoogte = 500;
+    private final JPanel panel;
+    private final int breedte = 200;
+    private final int hoogte = 500;
     
     public Timers(int s) {
 

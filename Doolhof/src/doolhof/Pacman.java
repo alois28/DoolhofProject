@@ -19,7 +19,7 @@ import javax.swing.ImageIcon;
 public class Pacman extends SpelObject {
 
      
-    static Image player = new ImageIcon(Muur.class.getResource("\\Plaatjes\\player.png")).getImage();
+    private static final Image player = new ImageIcon(Pacman.class.getResource("\\Plaatjes\\player.png")).getImage();
     
     
     public Pacman(Doolhof doolhof, int row, int col)
@@ -39,14 +39,16 @@ public class Pacman extends SpelObject {
 		}
 	} 
      
+    @Override
      public void draw(Graphics g) {
-		g.drawImage(this.player,col*Level.WIDTH, row*Level.HEIGHT,Level.WIDTH,Level.HEIGHT,null);
+		g.drawImage(Pacman.player,col*Level.WIDTH, row*Level.HEIGHT,Level.WIDTH,Level.HEIGHT,null);
 	}
     
      public void update() {}
      
+    @Override
     public void drawItem(Graphics g, int x, int y) {
-        g.drawImage(this.player,x + (width), y+(height), width, height,null);
+        g.drawImage(Pacman.player,x + (width), y+(height), width, height,null);
     }
     
    public void vuurt(){
@@ -55,6 +57,7 @@ public class Pacman extends SpelObject {
    } 
    
    
+    @Override
    public boolean isPassable() {
 		return true;
 	}

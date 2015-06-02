@@ -19,7 +19,7 @@ import javax.swing.ImageIcon;
 
 public class Grass extends SpelObject {
     
-    static Image grass = new ImageIcon(Grass.class.getResource("\\Plaatjes\\grass.png")).getImage();
+    private static final Image grass = new ImageIcon(Grass.class.getResource("\\Plaatjes\\grass.png")).getImage();
     
     public Grass(Doolhof game, int row, int col)
 	{
@@ -39,16 +39,18 @@ public class Grass extends SpelObject {
     }
     
     
+    @Override
     public boolean isPassable() {
 		return true;
 	}
     
     @Override
     public void drawItem(Graphics g, int x, int y) {
-        g.drawImage(this.grass,x + (width/4), y+(height/4), width, height,null);
+        g.drawImage(Grass.grass,x + (width/4), y+(height/4), width, height,null);
     }
     
+    @Override
     public void draw(Graphics g) {
-		g.drawImage(this.grass,col*Level.WIDTH, row*Level.HEIGHT,Level.WIDTH,Level.HEIGHT,null);
+		g.drawImage(Grass.grass,col*Level.WIDTH, row*Level.HEIGHT,Level.WIDTH,Level.HEIGHT,null);
 	}
 }

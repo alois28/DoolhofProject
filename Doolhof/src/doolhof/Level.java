@@ -12,19 +12,19 @@ import java.awt.Graphics;
  */
 
 
-public class Level {
+public final class Level {
 
 	public static final int WIDTH  = 20;
 	public static final int HEIGHT = 20;
 	private static int code; // Level Code
-	private Vak[][] plan = new Vak[WIDTH][HEIGHT];
+	private final Vak[][] plan = new Vak[WIDTH][HEIGHT];
 	private char[][] tiles;
-	private Doolhof doolhof;
+	private final Doolhof doolhof;
 
 	
 	public Level(Doolhof doolhof, char[][] levelRep,int code)
 	{
-		this.code = code;
+		Level.code = code;
 		this.setTiles(levelRep);
 		this.doolhof = doolhof;
 	}

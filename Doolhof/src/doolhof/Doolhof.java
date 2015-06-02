@@ -92,7 +92,7 @@ public class Doolhof {
 
 		pacman = new Pacman(this,2,2);
 
-		objecten = new ArrayList<SpelObject>();
+		objecten = new ArrayList<>();
 		objecten.add(new Vijand(this,5,9,1,0));
 		objecten.add(new Vijand(this,15,8,0,2));
 		objecten.add(new Vijand(this,14,18,1,1));
@@ -136,6 +136,7 @@ public class Doolhof {
 			this.doolhof = doolhof;
 		}
                 
+                @Override
 		public void actionPerformed(ActionEvent arg0) {
 
 			

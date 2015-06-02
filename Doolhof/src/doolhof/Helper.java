@@ -17,7 +17,7 @@ import javax.swing.ImageIcon;
 
 public class Helper extends SpelObject {
 
-    static Image helper = new ImageIcon(Exit.class.getResource("\\Plaatjes\\friend.png")).getImage();
+    private static final Image helper = new ImageIcon(Helper.class.getResource("\\Plaatjes\\friend.png")).getImage();
     
     public Helper(Doolhof game, int row, int col)
 	{
@@ -36,14 +36,17 @@ public class Helper extends SpelObject {
         
     }
     
+    @Override
     public void drawItem(Graphics g, int x, int y) {
-        g.drawImage(this.helper,x + (width), y+(height), width, height,null);
+        g.drawImage(Helper.helper,x + (width), y+(height), width, height,null);
     }
     
+    @Override
     public void draw(Graphics g) {
-		g.drawImage(this.helper,col*Level.WIDTH, row*Level.HEIGHT,Level.WIDTH,Level.HEIGHT,null);
+		g.drawImage(Helper.helper,col*Level.WIDTH, row*Level.HEIGHT,Level.WIDTH,Level.HEIGHT,null);
 	}
     
+    @Override
     public boolean isPassable() {
 		return true;
 	}

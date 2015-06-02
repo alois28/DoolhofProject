@@ -17,7 +17,7 @@ import javax.swing.ImageIcon;
 
 public class Bazooka extends SpelObject {
 
-   static Image bazooka = new ImageIcon(Exit.class.getResource("\\Plaatjes\\rocket_launcher.png")).getImage();
+   private static final Image bazooka = new ImageIcon(Bazooka.class.getResource("\\Plaatjes\\rocket_launcher.png")).getImage();
     
    int drow ;
    int dcol;
@@ -39,14 +39,17 @@ public class Bazooka extends SpelObject {
        
    }
    
+   @Override
    public void drawItem(Graphics g, int x, int y) {
-        g.drawImage(this.bazooka,x + (width), y+(height), width, height,null);
+        g.drawImage(Bazooka.bazooka,x + (width), y+(height), width, height,null);
     }
    
+   @Override
    public void draw(Graphics g) {
-		g.drawImage(this.bazooka,col*Level.WIDTH, row*Level.HEIGHT,Level.WIDTH,Level.HEIGHT,null);
+		g.drawImage(Bazooka.bazooka,col*Level.WIDTH, row*Level.HEIGHT,Level.WIDTH,Level.HEIGHT,null);
 	}
    
+   @Override
    public boolean isPassable() {
 		return true;
 	}

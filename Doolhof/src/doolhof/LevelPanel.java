@@ -29,6 +29,7 @@ public class LevelPanel extends JPanel {
 	}
 
 
+        @Override
 	public void paintComponent(Graphics g)
 	{
 		doolhof.level.draw(g);
@@ -40,6 +41,7 @@ public class LevelPanel extends JPanel {
 	{
 
 
+                @Override
 		public void keyPressed (KeyEvent event)
 		{
 			

@@ -17,7 +17,7 @@ import javax.swing.ImageIcon;
 
 public class Exit extends SpelObject {
     
-    static Image finish = new ImageIcon(Exit.class.getResource("\\Plaatjes\\finish.png")).getImage();
+    private static final Image finish = new ImageIcon(Exit.class.getResource("\\Plaatjes\\finish.png")).getImage();
 
     public Exit(Doolhof game, int row, int col) {
         super(game, row, col);
@@ -33,14 +33,17 @@ public class Exit extends SpelObject {
         
     } 
     
+    @Override
     public void drawItem(Graphics g, int x, int y) {
-        g.drawImage(this.finish,x + (width/4), y+(height/4), width, height,null);
+        g.drawImage(Exit.finish,x + (width/4), y+(height/4), width, height,null);
     }
     
+    @Override
     public void draw(Graphics g) {
-		g.drawImage(this.finish,col*Level.WIDTH, row*Level.HEIGHT,Level.WIDTH,Level.HEIGHT,null);
+		g.drawImage(Exit.finish,col*Level.WIDTH, row*Level.HEIGHT,Level.WIDTH,Level.HEIGHT,null);
 	}
     
+    @Override
     public boolean isPassable() {
 		return true;
 	}
