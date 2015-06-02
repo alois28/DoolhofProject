@@ -56,6 +56,4 @@ public abstract class Vak {
         this.col = col;
     }
 
-    public abstract boolean isPassable();
-
 }

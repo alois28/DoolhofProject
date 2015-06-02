@@ -31,7 +31,7 @@ public class Pacman extends SpelObject {
      public void move(int drow, int dcol)
 	{
 
-		if( row+drow>=0 && col+dcol>=0 && row+drow<Level.WIDTH && col+dcol<Level.WIDTH && game.level.getPlan()[row+drow][col+dcol].isPassable() )
+		if( row+drow>=0 && col+dcol>=0 && row+drow<Level.WIDTH && col+dcol<Level.WIDTH && game.level.getPlan()[row+drow][col+dcol].item.isPassable() )
 		{
 			game.pacman.row = row+drow;
 			game.pacman.col = col+dcol;

@@ -46,10 +46,7 @@ public final class Level {
 
 					this.plan[i][j] = new Vak(new Muur()) {
 
-                                            @Override
-                                            public boolean isPassable() {
-                                                return false;
-                                            }
+                                            
                                         };
 					this.plan[i][j].drawTile(g, j*WIDTH, i*HEIGHT);
 				}
@@ -59,10 +56,7 @@ public final class Level {
 
 					this.plan[i][j] = new Vak(new Grass()) {
 
-                                            @Override
-                                            public boolean isPassable() {
-                                                return true;
-                                            }
+                                            
                                         };
 					this.plan[i][j].drawTile(g, j*WIDTH, i*HEIGHT);
 				}
@@ -72,10 +66,7 @@ public final class Level {
 
 					this.plan[i][j] = new Vak(new Exit()) {
 
-                                            @Override
-                                            public boolean isPassable() {
-                                                return true;
-                                            }
+                                            
                                         };
 					this.plan[i][j].drawTile(g, j*WIDTH, i*HEIGHT);
 				}
