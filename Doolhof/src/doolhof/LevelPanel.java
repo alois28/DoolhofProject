@@ -3,7 +3,8 @@ package doolhof;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -34,10 +35,8 @@ public class LevelPanel extends JPanel {
 	{
 		doolhof.level.draw(g);
 	}
-
-
-
-	private class MoveListener extends KeyAdapter
+        
+        private class MoveListener extends KeyAdapter
 	{
 
 

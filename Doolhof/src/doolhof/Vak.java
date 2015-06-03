@@ -10,21 +10,38 @@ import java.awt.Graphics;
  *
  * @author Marnix/Alois
  */
-public abstract class Vak {
+public class Vak {
 
     SpelObject item;
     boolean isItem;
         
-    static int width = Level.WIDTH;
-    static int height = Level.HEIGHT;
+    static int width = Level.COLUMNS;
+    static int height = Level.ROWS;
     int row, col;
+    private int positionX, positionY;
     
     public Vak(SpelObject item)
-	{
+    {
 		this.item=item;
 		isItem = true;
-	}
+    }
+    
+    public Vak(int posX, int posY) 
+    {
+		this.positionX = posX;
+		this.positionY = posY;
+    }
+    
+    public int getX() 
+    {
+	return positionX;
+    }
 
+    public int getY() 
+    {
+	return positionY;
+    }
+        
     public Vak() {
         this.item=null;
 	isItem = false;

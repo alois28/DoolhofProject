@@ -5,6 +5,7 @@
 package doolhof;
 
 import java.awt.Graphics;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,11 +15,11 @@ import java.awt.Graphics;
 
 public final class Level {
 
-	public static final int WIDTH  = 20;
-	public static final int HEIGHT = 20;
+	public static final int COLUMNS  = 20;
+	public static final int ROWS = 20;
 	private static int code; // Level Code
-	private final Vak[][] plan = new Vak[WIDTH][HEIGHT];
-	private char[][] tiles;
+	private final Vak[][] tileList = new Vak[COLUMNS][ROWS];
+        private char[][] tiles;
 	private final Doolhof doolhof;
 
 	
@@ -27,8 +28,15 @@ public final class Level {
 		Level.code = code;
 		this.setTiles(levelRep);
 		this.doolhof = doolhof;
+                
+                for(int x = 0; x < COLUMNS; x++) {
+			for(int y = 0; y < ROWS; y++) {
+				tileList[x][y] = new Vak(x, y);
+			}
+                }
+                
+                
 	}
-
 	
 	public void draw(Graphics g)
 	{
@@ -44,31 +52,31 @@ public final class Level {
 				if(this.getTiles()[i][j] == 'w')
 				{	
 
-					this.plan[i][j] = new Vak(new Muur()) {
+					this.tileList[i][j] = new Vak(new Muur()) {
 
                                             
                                         };
-					this.plan[i][j].drawTile(g, j*WIDTH, i*HEIGHT);
+					this.tileList[i][j].drawTile(g, j*COLUMNS, i*ROWS);
 				}
 				//  tekent grass
 				else if(this.getTiles()[i][j] == 'c')
 				{	
 
-					this.plan[i][j] = new Vak(new Grass()) {
+					this.tileList[i][j] = new Vak(new Grass()) {
 
                                             
                                         };
-					this.plan[i][j].drawTile(g, j*WIDTH, i*HEIGHT);
+					this.tileList[i][j].drawTile(g, j*COLUMNS, i*ROWS);
 				}
 				//  tekent exit
 				else if(this.getTiles()[i][j] == 'e')
 				{	
 
-					this.plan[i][j] = new Vak(new Exit()) {
+					this.tileList[i][j] = new Vak(new Exit()) {
 
                                             
                                         };
-					this.plan[i][j].drawTile(g, j*WIDTH, i*HEIGHT);
+					this.tileList[i][j].drawTile(g, j*COLUMNS, i*ROWS);
 				}
 
 			}
@@ -86,20 +94,44 @@ public final class Level {
 		}
 
 	}
+        
+        public ArrayList<Vak> getTileNeighbours(Vak vak) {
+		ArrayList<Vak> neighbours = new ArrayList<>();
+		int fromX = vak.getX();
+		int fromY = vak.getY();
+		
+		neighbours.add(getTiles(fromX-1, fromY)); // Left
+		neighbours.add(getTiles(fromX+1, fromY)); // Right
+		neighbours.add(getTiles(fromX, fromY-1)); // Up
+		neighbours.add(getTiles(fromX, fromY+1)); // Down
+		
+		
+		return neighbours;
+	}
+        
+//        public Vak nextTile(Vak startTile, Direction dir) {
+//		int x = startTile.getX() + dir.getX();
+//		int y = startTile.getY() + dir.getY();
+//		
+//		return this.getTiles(x, y);
+//	}
 
-	
-	public Vak[][] getPlan()
+        public Vak getTiles(int x, int y) {
+		if(x < 0 || x > COLUMNS-1 || y < 0 || y > ROWS-1) return null;
+		
+		return tileList[x][y];
+	}
+        public Vak[][] gettileList()
 	{
-		return plan;
+		return tileList;
 	}
-
-	
-	public char[][] getTiles() {
-		return tiles;
-	}
-
-	
-	public void setTiles(char[][] tiles) {
+        
+        
+        public void setTiles(char[][] tiles) {
 		this.tiles = tiles;
+	}
+        
+        public char[][] getTiles() {
+		return tiles;
 	}
 }

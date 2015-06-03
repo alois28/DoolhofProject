@@ -51,6 +51,6 @@ public class Grass extends SpelObject {
     
     @Override
     public void draw(Graphics g) {
-		g.drawImage(Grass.grass,col*Level.WIDTH, row*Level.HEIGHT,Level.WIDTH,Level.HEIGHT,null);
+		g.drawImage(Grass.grass,col*Level.COLUMNS, row*Level.ROWS,Level.COLUMNS,Level.ROWS,null);
 	}
 }

@@ -48,7 +48,7 @@ public class Vijand extends SpelObject {
    
    @Override
    public void draw(Graphics g) {
-		g.drawImage(Vijand.vijand,col*Level.WIDTH, row*Level.HEIGHT,Level.WIDTH,Level.HEIGHT,null);
+		g.drawImage(Vijand.vijand,col*Level.COLUMNS, row*Level.ROWS,Level.COLUMNS,Level.ROWS,null);
 	}
    
    @Override
